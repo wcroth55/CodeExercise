@@ -34,5 +34,11 @@ public class Move
 	public Piece getCapture() {
 		return capture;
 	}
+	
+	@Override
+	public String toString() {
+		if (position == null)  return "[null]";
+		return "[" + position.getX() + "," + position.getY() + "]";
+	}
 
 }

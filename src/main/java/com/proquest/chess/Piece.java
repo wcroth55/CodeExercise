@@ -34,5 +34,12 @@ public abstract class Piece
 		return (color == Color.White ? type.getSymbol() : type.getSymbol().toLowerCase());
 	}
 	
+	// Note that this will not work for pawns, and will have to be overridden.
+	protected boolean mayLandOn (Position pos, Board board) {
+		if (! pos.isValid())  return false;
+		Piece piece = board.getPiece(pos);
+		return (piece == null  ||  piece.getColor() != color);
+	}
+	
 	abstract List<Move> makeMoves(Board board) ;
 }
